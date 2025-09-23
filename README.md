@@ -6,6 +6,10 @@
 
 
 
+
+
+![GitHub top language](https://img.shields.io/github/languages/top/lefcc/conta_bancaria) ![GitHub language count](https://img.shields.io/github/languages/count/lefcc/conta_bancaria) ![GitHub repo size](https://img.shields.io/github/repo-size/lefcc/conta_bancaria) ![GitHub last commit](https://img.shields.io/github/last-commit/lefcc/conta_bancaria) ![GitHub issues](https://img.shields.io/github/issues/lefcc/conta_bancaria) ![GitHub pull requests](https://img.shields.io/github/issues-pr/lefcc/conta_bancaria)![Status](https://img.shields.io/badge/Status-Concluído-brightgreen)
+
 ------
 
 
@@ -27,17 +31,29 @@ Este projeto, desenvolvido em **Java**, foca no estudo e aplicação dos conceit
 
 Além de servir como um simulador funcional, o projeto oferece uma base prática para compreender os princípios fundamentais da POO aplicados a um cenário realista.
 
+
+
 ## 2. Funcionalidades do Projeto
 
 1. **Criar Conta:** Cria uma nova conta bancária especificando nome do titular, número da agência, saldo inicial e propriedades específicas conforme o tipo da conta. O número da conta é gerado automaticamente.
+
 2. **Listar todas as Contas:** Lista todas as contas cadastradas no sistema.
+
 3. **Consultar uma Conta pelo número:** Encontra uma conta pelo número.
+
 4. **Consultar uma Conta pelo titular:** Encontra uma ou mais contas associadas ao nome do titular.
+
 5. **Editar Conta:** Permite atualizar os dados de uma conta existente a partir do número da conta.
+
 6. **Excluir Conta:** Remove uma conta específica com base no número da conta.
+
 7. **Sacar:** Realiza a retirada de um valor de uma conta, desde que o saldo seja suficiente.
+
 8. **Depositar:** Adiciona um valor ao saldo de uma conta existente.
+
 9. **Transferir:** Transfere um valor de uma conta para outra, respeitando os respectivos saldos e limites.
+
+   
 
 ## 3. Diagrama de Classes
 
@@ -47,7 +63,49 @@ Esse diagrama ajuda a planejar e entender a arquitetura do sistema, mostrando co
 
 Abaixo, você confere o Diagrama de Classes do Projeto Conta Bancária:
 
-<iframe title="File display" role="presentation" class="render-viewer" sandbox="allow-scripts allow-same-origin allow-top-navigation allow-popups" src="https://viewscreen.githubusercontent.com/markdown/mermaid?docs_host=https%3A%2F%2Fdocs.github.com&amp;color_mode=dark#14e57432-9705-4ef4-9e30-b79b3fba1119" name="14e57432-9705-4ef4-9e30-b79b3fba1119" data-content="{&quot;data&quot;:&quot;classDiagram\nclass Conta {\n  - numero: int\n  - agencia: int\n  - tipo: int\n  - titular: String\n  - saldo: float\n  + get numero() int\n  + get agencia() int\n  + get tipo() int\n  + get titular() String\n  + get saldo() float\n  + set numero(numero: int) void\n  + set agencia(agencia: int) void\n  + set tipo(tipo: int) void\n  + set titular(titular: String) void\n  + set saldo(saldo: float) void\n  + sacar(valor: float) boolean\n  + depositar(valor: float) void\n  + visualizar() void\n}\nclass ContaCorrente {\n  - limite: float\n  + get limite() float\n  + set limite(limite: float) void\n  + sacar(valor: float) boolean\n  + visualizar() void\n}\nclass ContaPoupanca {\n  - aniversario: int\n  + get aniversario() int\n  + set aniversario(aniversario: int) void\n  + visualizar() void\n}\nContaCorrente --&amp;gt; Conta\nContaPoupanca --&amp;gt; Conta\n&quot;}" style="box-sizing: border-box; display: block; width: 830px; height: 810px; border: 0px; color: rgb(240, 246, 252); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(13, 17, 23); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"></iframe>
+
+
+```mermaid
+classDiagram
+    class Conta {
+        - numero: int
+        - agencia: int
+        - tipo: int
+        - titular: String
+        - saldo: float
+        + getNumero() int
+        + getAgencia() int
+        + getTipo() int
+        + getTitular() String
+        + getSaldo() float
+        + setNumero(numero: int) void
+        + setAgencia(agencia: int) void
+        + setTipo(tipo: int) void
+        + setTitular(titular: String) void
+        + setSaldo(saldo: float) void
+        + sacar(valor: float) boolean
+        + depositar(valor: float) void
+        + visualizar() void
+    }
+
+    class ContaCorrente {
+        - limite: float
+        + getLimite() float
+        + setLimite(limite: float) void
+        + sacar(valor: float) boolean
+        + visualizar() void
+    }
+
+    class ContaPoupanca {
+        - aniversario: int
+        + getAniversario() int
+        + setAniversario(aniversario: int) void
+        + visualizar() void
+    }
+
+    ContaCorrente --|> Conta
+    ContaPoupanca --|> Conta
+```
 
 
 
@@ -56,6 +114,8 @@ Abaixo, você confere o Diagrama de Classes do Projeto Conta Bancária:
 
 
 [![source: imgur.com](https://camo.githubusercontent.com/0c1b34a65f6d4e29ef5ba6d8e728d0e917cfd56fe0e450e6e166b927ddab11bc/68747470733a2f2f692e696d6775722e636f6d2f4d464b397958422e706e67)](https://camo.githubusercontent.com/0c1b34a65f6d4e29ef5ba6d8e728d0e917cfd56fe0e450e6e166b927ddab11bc/68747470733a2f2f692e696d6775722e636f6d2f4d464b397958422e706e67)
+
+
 
 ## 5. Requisitos
 
@@ -96,7 +156,7 @@ git clone https://github.com/lefcc/conta_bancaria.git
 
 2. Abra a **Classe Menu**
 
-3. Clique no botão **Run** [![source: imgur.com](https://camo.githubusercontent.com/e60f53b4d9287f30354de6cc4254404bbd7892267c709b7de403c25d830a0d95/68747470733a2f2f692e696d6775722e636f6d2f4d7442516a55702e706e67)](https://camo.githubusercontent.com/e60f53b4d9287f30354de6cc4254404bbd7892267c709b7de403c25d830a0d95/68747470733a2f2f692e696d6775722e636f6d2f4d7442516a55702e706e67) para executar a aplicação
+3. Clique no botão *Run* <img src="https://i.imgur.com/MtBQjUp.png" title="source: imgur.com" width="3%"/> para executar a aplicação
 
 4. Caso seja perguntado qual é o tipo do projeto, selecione a opção **Java Application**
 
