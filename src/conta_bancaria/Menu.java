@@ -1,26 +1,97 @@
 package conta_bancaria;
 
+import java.util.Scanner;
+
+import conta.util.Cores;
 import conta_bancaria.model.Conta;
 
 public class Menu {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-			Conta c1 = new Conta(1, 123, 1, "Leticia Campos", 500000.00f);
-			// instanciando objeto classe conta. n conta, agencia conta, tipo conta, titular conta, saldo atual conta, f de float
-		
-			System.out.println("O Saldo da conta é: " + c1.getSaldo());
-			// mostra saldo atual da conta
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		Scanner leia = new Scanner(System.in);
+
+		int opcao;
+
+		while (true) {
+
+			System.out.println(Cores.TEXT_BLACK_BRIGHT + Cores.ANSI_WHITE_BACKGROUND
+					+ "*****************************************************");
+			System.out.println("                                                     ");
+			System.out.println("                 BANCO METRÓPOLES                    ");
+			System.out.println("                                                     ");
+			System.out.println("*****************************************************");
+			System.out.println("                                                     ");
+			System.out.println("            1 - Criar Conta                          ");
+			System.out.println("            2 - Listar todas as Contas               ");
+			System.out.println("            3 - Buscar Conta por Numero              ");
+			System.out.println("            4 - Atualizar Dados da Conta             ");
+			System.out.println("            5 - Apagar Conta                         ");
+			System.out.println("            6 - Sacar                                ");
+			System.out.println("            7 - Depositar                            ");
+			System.out.println("            8 - Transferir valores entre Contas      ");
+			System.out.println("            0 - Sair                                 ");
+			System.out.println("                                                     ");
+			System.out.println("*****************************************************");
+			System.out.println("Entre com a opção desejada:                          ");
+			System.out.println("\n\n" + Cores.TEXT_RESET);
+
+			opcao = leia.nextInt();
+
+			if (opcao == 0) {
+				System.out.println(Cores.TEXT_PURPLE_BOLD + "\nBanco Metrópoles!");
+				sobre();
+				leia.close();
+				System.exit(0);
+			}
+
+			switch (opcao) {
+			case 1:
+				System.out.println(Cores.TEXT_PURPLE + "Criar Conta\n\n");
+				break;
+				
+			case 2:
+				System.out.println(Cores.TEXT_PURPLE + "Listar todas as Contas\n\n");
+				break;
+				
+			case 3:
+				System.out.println(Cores.TEXT_PURPLE + "Consultar dados da Conta - por número\n\n");
+				break;
+				
+			case 4:
+				System.out.println(Cores.TEXT_PURPLE + "Atualizar dados da Conta\n\n");
+				break;
+				
+			case 5:
+				System.out.println(Cores.TEXT_PURPLE + "Apagar a Conta\n\n");
+				break;
+				
+			case 6:
+				System.out.println(Cores.TEXT_PURPLE + "Saque\n\n");
+				break;
+				
+			case 7:
+				System.out.println(Cores.TEXT_PURPLE + "Depósito\n\n");
+				break;
+				
+			case 8:
+				System.out.println(Cores.TEXT_PURPLE + "Transferência entre Contas\n\n");
+				break;
+				
+			default:
+				System.out.println(Cores.TEXT_RED_BOLD + "\nOpção Inválida!\n" + Cores.TEXT_RESET);
+				break;
+			}
+		}
+
+	}
+
+	public static void sobre() {
+		System.out.println("\n*********************************************************");
+		System.out.println("Projeto Desenvolvido por: Letícia Campos");
+		System.out.println("E-mail - leticiacamposwork@gmail.com");
+		System.out.println("github.com/lefcc");
+		System.out.println("*********************************************************");
 	}
 
 }
