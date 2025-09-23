@@ -8,7 +8,7 @@
 
 
 
-![GitHub top language](https://img.shields.io/github/languages/top/lefcc/conta_bancaria) ![GitHub language count](https://img.shields.io/github/languages/count/lefcc/conta_bancaria) ![GitHub repo size](https://img.shields.io/github/repo-size/lefcc/conta_bancaria) ![GitHub last commit](https://img.shields.io/github/last-commit/lefcc/conta_bancaria) ![GitHub issues](https://img.shields.io/github/issues/lefcc/conta_bancaria) ![GitHub pull requests](https://img.shields.io/github/issues-pr/lefcc/conta_bancaria)![Status](https://img.shields.io/badge/Status-Concluído-brightgreen)
+![GitHub top language](https://img.shields.io/github/languages/top/lefcc/conta_bancaria) ![GitHub language count](https://img.shields.io/github/languages/count/lefcc/conta_bancaria) ![GitHub repo size](https://img.shields.io/github/repo-size/lefcc/conta_bancaria) ![GitHub last commit](https://img.shields.io/github/last-commit/lefcc/conta_bancaria) ![GitHub issues](https://img.shields.io/github/issues/lefcc/conta_bancaria) ![GitHub pull requests](https://img.shields.io/github/issues-pr/lefcc/conta_bancaria)![Status](https://img.shields.io/badge/Status-Concluído-brightgreen) 
 
 ------
 
@@ -135,7 +135,7 @@ Para executar os códigos localmente, você precisará de:
 
 
 
-1. Clone o repositório do Projeto [Conta Bancária](https://github.com/rafaelq80/conta_bancaria_t82) dentro da pasta do *Workspace* do STS/Eclipse
+1. Clone o repositório do Projeto [Conta Bancária](https://github.com/lefcc/conta_bancaria.git) dentro da pasta do *Workspace* do STS/Eclipse
 
 ```
 git clone https://github.com/lefcc/conta_bancaria.git
