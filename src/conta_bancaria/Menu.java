@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import conta.util.Cores;
 import conta_bancaria.model.Conta;
+import conta_bancaria.model.ContaCorrente;
 
 public class Menu {
 
@@ -13,9 +14,53 @@ public class Menu {
 
 		int opcao;
 
+		// Instanciar Objetos da Classe Conta
+
+		Conta c1 = new Conta(1, 123, 1, "Cintia Dourado", 500000.00f);
+
+		Conta c2 = new Conta(2, 123, 2, "Priscila Lins", 500000.00f);
+
+		System.out.println("O Saldo da conta é: " + c1.getSaldo());
+
+		c1.setSaldo(600000.00f);
+
+		System.out.println("O Saldo da conta é: " + c1.getSaldo());
+
+		c1.visualizar();
+
+		c2.visualizar();
+
+		System.out.println(c1.sacar(1000));
+		System.out.println("O Saldo da conta é: " + c1.getSaldo());
+
+		System.out.println(c2.sacar(1000000));
+		System.out.println("O Saldo da conta é: " + c2.getSaldo());
+
+		c1.depositar(5000);
+		System.out.println("O Saldo da conta é: " + c1.getSaldo());
+
+		// Instanciar Objetos da Classe ContaCorrente
+		ContaCorrente cc1 = new ContaCorrente(3, 456, 1, "Carla Santos", 1000000.00f, 10000.00f);
+
+		cc1.visualizar();
+
+		
+		//sacar conta corrente
+		System.out.println(cc1.sacar(2000000.00f));
+		cc1.visualizar();
+
+		
+		System.out.println(cc1.sacar(2000.00f));
+		cc1.visualizar();
+
+		//depositar conta corrente
+		cc1.depositar(5000.00f);
+		cc1.visualizar();
+		
+		
 		while (true) {
 
-			System.out.println(Cores.TEXT_BLACK_BRIGHT + Cores.ANSI_WHITE_BACKGROUND
+			System.out.println(Cores.TEXT_BLACK + Cores.ANSI_WHITE_BACKGROUND
 					+ "*****************************************************");
 			System.out.println("                                                     ");
 			System.out.println("                 BANCO METRÓPOLES                    ");
@@ -49,35 +94,35 @@ public class Menu {
 			case 1:
 				System.out.println(Cores.TEXT_PURPLE + "Criar Conta\n\n");
 				break;
-				
+
 			case 2:
 				System.out.println(Cores.TEXT_PURPLE + "Listar todas as Contas\n\n");
 				break;
-				
+
 			case 3:
 				System.out.println(Cores.TEXT_PURPLE + "Consultar dados da Conta - por número\n\n");
 				break;
-				
+
 			case 4:
 				System.out.println(Cores.TEXT_PURPLE + "Atualizar dados da Conta\n\n");
 				break;
-				
+
 			case 5:
 				System.out.println(Cores.TEXT_PURPLE + "Apagar a Conta\n\n");
 				break;
-				
+
 			case 6:
 				System.out.println(Cores.TEXT_PURPLE + "Saque\n\n");
 				break;
-				
+
 			case 7:
 				System.out.println(Cores.TEXT_PURPLE + "Depósito\n\n");
 				break;
-				
+
 			case 8:
 				System.out.println(Cores.TEXT_PURPLE + "Transferência entre Contas\n\n");
 				break;
-				
+
 			default:
 				System.out.println(Cores.TEXT_RED_BOLD + "\nOpção Inválida!\n" + Cores.TEXT_RESET);
 				break;

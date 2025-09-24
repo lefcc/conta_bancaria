@@ -2,6 +2,7 @@ package conta.util;
 
 public class Cores {
 
+	public static final String TEXT_BLACK = "\u001B[30m";
 	public static final String TEXT_RESET = "\u001B[0m";
 	public static final String TEXT_BLACK_BRIGHT = "\033[0;90m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
