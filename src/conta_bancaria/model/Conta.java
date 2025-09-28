@@ -1,6 +1,6 @@
 package conta_bancaria.model;
 
-public class Conta {
+public abstract class Conta {
 
 	// Atributos da Classe
 
@@ -19,6 +19,9 @@ public class Conta {
 		this.titular = titular;
 		this.saldo = saldo;
 	}
+	
+	/* this.nome - identifica atributo da classe
+	 = nome - parâmetro do método */
 
 	public Conta(){}
 		
@@ -68,14 +71,14 @@ public class Conta {
 	public boolean sacar(float valor) {
 		if (this.saldo < valor) {
 			System.out.println("\n Saldo insuficiente!");
-			return false;
+			return false;  // indica que operação de saque não deu certo
 		}
 
 		this.saldo = this.saldo - valor;
-		return true;
+		return true; //indica que operação deu certo, saque foi efetuado
 	}
 
-	public void depositar(float valor) {
+	public void depositar(float valor) {  // é void pois depositar sempre da certo, não precisa fazer verificação e nem retornar algo na tela
 		this.saldo = this.saldo + valor;
 	}
 
@@ -85,7 +88,7 @@ public class Conta {
 
 		switch (this.tipo) {
 		case 1 -> tipo = "Conta Corrente";
-		case 2 -> tipo = "Conta Poupansa";
+		case 2 -> tipo = "Conta Poupança";
 		default -> tipo = "Desconhecido";
 		}
 
