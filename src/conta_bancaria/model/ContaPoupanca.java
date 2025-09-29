@@ -21,7 +21,7 @@ public class ContaPoupanca extends Conta {
 	@Override //informa/indica que este metodo foi sobreescrito da superclasse, foi criado para atender a uma especificidade da classe atual, ContaCorrente
 	public void visualizar() {
 		super.visualizar();
-		System.out.printf("Aniversário da conta: ", this.aniversario);
+		System.out.printf("Aniversário da conta: %d%n", this.aniversario);
 	}
 	
 

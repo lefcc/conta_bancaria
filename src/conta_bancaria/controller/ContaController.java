@@ -2,6 +2,7 @@ package conta_bancaria.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import conta_bancaria.model.Conta;
 import conta_bancaria.repository.ContaRepository;
@@ -15,7 +16,7 @@ public class ContaController implements ContaRepository {
 	@Override
 	public void listarTodas() {
 		for (var conta : listaContas) {
-			conta.visualizar();
+			conta.visualizar();    //método visualizar da classe conta
 		}
 
 	}
@@ -34,9 +35,9 @@ public class ContaController implements ContaRepository {
 
 		if(buscarConta != null) {
 			listaContas.set(listaContas.indexOf(buscarConta), conta);
-			System.out.printf("\nA Conta número: %d foiu atualizada com sucesso!%n", conta.getNumero());
+			System.out.printf("\nA Conta número %d foi atualizada com sucesso!%n", conta.getNumero());
 		} else {
-			System.out.printf("\nA Conta número: %d não foi encontrada.%n", conta.getNumero());
+			System.out.printf("\nA Conta número %d não foi encontrada.%n", conta.getNumero());
 		}
 		
 	}
@@ -50,7 +51,7 @@ public class ContaController implements ContaRepository {
 		if(conta != null) {
 			conta.visualizar();
 		}else {
-			System.out.printf("\nA Conta número: %d não foi encontrada!%n", numero);
+			System.out.printf("\nA conta número %d não foi encontrada!%n", numero);
 		}
 		
 	}
@@ -67,7 +68,7 @@ public class ContaController implements ContaRepository {
 				System.out.printf("\nA conta número %d foi deletada com sucesso!%n", numero);
 			}
 		}else {
-			System.out.printf("\nA Conta número: %d não foi encontrada!%n", numero);
+			System.out.printf("\nA conta número %d não foi encontrada!%n", numero);
 		}
 		
 	}
@@ -76,23 +77,65 @@ public class ContaController implements ContaRepository {
 
 	@Override
 	public void sacar(int numero, float valor) {
-		// TODO Auto-generated method stub
 
+		var conta = buscarNaCollection(numero);
+		
+		if(conta != null) {
+			if(conta.sacar(valor) == true)
+				System.out.printf("\nO saque no valor de %.2f, na conta número: %d foi efetuado com sucesso!%n", valor, numero);
+			}else {
+			System.out.printf("\nA conta número: %d não foi encontrada!", numero);
+		}
+		
 	}
 
 	@Override
 	public void depositar(int numero, float valor) {
-		// TODO Auto-generated method stub
+		
+		var conta = buscarNaCollection(numero);
+		
+		if(conta != null) {
+			conta.depositar(valor);
+				System.out.printf("\nO depósito no valor de %.2f, na conta número: %d foi efetuado com sucesso!%n", valor, numero);
+			}else {
+			System.out.printf("\nA conta número: %d não foi encontrada!", numero);
+		}
 
 	}
 
 	@Override
 	public void transferir(int numeroOrigem, int numeroDestino, float valor) {
-		// TODO Auto-generated method stub
+		
+		var contaOrigem = buscarNaCollection(numeroOrigem);
+		var contaDestino = buscarNaCollection(numeroDestino);
+		
+		if(contaOrigem != null && contaDestino != null)  {
+			if(contaOrigem.sacar(valor) == true)
+				contaDestino.depositar(valor);
+				System.out.printf("\nA transferência no valor de %.2f, da conta número: %d par a aconta número %d foi efetuada com sucesso!%n", valor, numeroOrigem, numeroDestino);
+			}else {
+			System.out.printf("\nA conta de Origem e/ou Conta de Destino não foi encontrada!");
+		}
 
 	}
 	
+	@Override
 	
+	public void listarPorTitular(String titular) {
+		List<Conta> listaTitulares = listaContas.stream()
+				.filter(c -> c.getTitular().toUpperCase().contains(titular.toUpperCase()))
+				.collect(Collectors.toList());
+		
+		if(listaTitulares.isEmpty()) {
+			System.out.printf("\nNenhuma conta foi encontrada para titulares que possuam o nome: %s", titular);
+		} 
+		for(var conta : listaTitulares) {
+			conta.visualizar(); //método visualizar da classe conta
+			
+		}
+	}
+	
+	// Métodos Auxiliares
 	public int gerarNumero() {
 		return ++ numero;
 	}
